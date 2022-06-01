@@ -4,6 +4,7 @@ WORKDIR /work_dir
 COPY requirements.txt /
 COPY chromedriver /usr/local/bin
 RUN apt-get -y update
+RUN apt-get install -y wget
 RUN wget --no-verbose -O /tmp/chrome.deb https://dl.google.com/linux/chrome/deb/pool/main/g/				google-chrome-stable/google-chrome-stable_102.0.5005.61_amd64.deb \
   	&& apt install -y /tmp/chrome.deb \
   	&& rm /tmp/chrome.deb
