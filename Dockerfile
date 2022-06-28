@@ -4,7 +4,7 @@ WORKDIR /work_dir
 COPY requirements.txt /
 COPY chromedriver /usr/local/bin
 RUN apt-get -y update
-RUN apt-get install -y wget
+RUN apt-get install -y wget nano
 RUN wget http://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_88.0.4324.96-1_amd64.deb
 RUN apt-get install -y ./google-chrome-stable_88.0.4324.96-1_amd64.deb
 RUN google-chrome --version
