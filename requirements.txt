@@ -1,1 +1,2 @@
-ipdb
+ipdb==0.13.9
+selenium==4.3.0
