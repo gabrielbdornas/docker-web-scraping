@@ -1,4 +1,4 @@
-FROM python:3.12.0a6-bullseye
+FROM python:3.9.12-slim-bullseye
 RUN echo "Setup.  This may take a few minutes ..."
 WORKDIR /work_dir
 COPY requirements.txt /
@@ -14,5 +14,3 @@ RUN apt-get install -y python3 python3-venv python3-dev libpq-dev
 RUN echo "Installing python packages..."
 RUN pip install -r /requirements.txt
 RUN echo "The setup has been made."
-
-
