@@ -1,4 +1,5 @@
-Docker para pacote python meu-contracheque
+Docker for Web Scraping
 ===
 
-Docker image para [busca de contracheques](https://github.com/gabrielbdornas/busca-contracheque)
+
+

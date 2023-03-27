@@ -1,4 +1,4 @@
-FROM python:3.9.12-slim-bullseye
+FROM python:3.11.2-slim-bullseye
 RUN echo "Setup.  This may take a few minutes ..."
 WORKDIR /work_dir
 COPY requirements.txt /
