@@ -2,17 +2,19 @@ FROM python:3.11.2-slim-bullseye
 RUN echo "Setup.  This may take a few minutes ..."
 WORKDIR /work_dir
 COPY requirements.txt /
-COPY chromedriver /usr/local/bin
 RUN apt-get -y update
 RUN apt-get install -y wget nano
-RUN wget http://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_110.0.5481.100-1_amd64.deb
-RUN apt-get install -y ./google-chrome-stable_110.0.5481.100-1_amd64.deb
-RUN google-chrome --version
+ARG CHROME_DRIVE_VERSION="116.0.5845.96"
+ARG CHROME_VERSION=${CHROME_DRIVE_VERSION}-1
+# RUN wget --no-verbose -O /usr/local/bin/chromedriver https://chromedriver.storage.googleapis.com/${CHROME_DRIVE_VERSION}/chromedriver_linux64.zip
+RUN wget --no-verbose -O /usr/local/bin/chromedriver https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/${CHROME_DRIVE_VERSION}/linux64/chrome-linux64.zip
+RUN wget --no-verbose -O /tmp/chrome.deb https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_${CHROME_VERSION}_amd64.deb \
+  && apt install -y /tmp/chrome.deb \
+  && rm /tmp/chrome.deb
 RUN apt-get -y install git
 RUN echo "Installing python..."
 RUN apt-get install -y python3 python3-venv python3-dev libpq-dev
 RUN echo "Installing python packages..."
 RUN pip install -r /requirements.txt
+RUN google-chrome --version
 RUN echo "The setup has been made."
-
-
