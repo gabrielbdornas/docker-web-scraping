@@ -15,6 +15,7 @@ Task `container` pode ser utilizada para debug local.
 ### Utilização docker
 
 - Comando `docker images` verifica images instaladas na máquina.
+- comando `docker container ls -a` mostra containers.
 - Comando `docker rmi <image-id>` remove uma imagem a partir no seu id.
 - Exemplo de utilização local do comando docker run: `docker run -it --rm -v $PWD:/work_dir gabrielbdornas/docker-web-scraping:1.0.2 bash`:
     - Tag `--rm` remove o container após seu fechamento.
