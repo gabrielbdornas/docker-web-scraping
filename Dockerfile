@@ -4,10 +4,9 @@ WORKDIR /work_dir
 COPY requirements.txt /
 RUN apt-get -y update
 RUN apt-get install -y wget nano
-ARG CHROME_DRIVE_VERSION="116.0.5845.96"
+ARG CHROME_DRIVE_VERSION="114.0.5735.90"
 ARG CHROME_VERSION=${CHROME_DRIVE_VERSION}-1
-# RUN wget --no-verbose -O /usr/local/bin/chromedriver https://chromedriver.storage.googleapis.com/${CHROME_DRIVE_VERSION}/chromedriver_linux64.zip
-RUN wget --no-verbose -O /usr/local/bin/chromedriver https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/${CHROME_DRIVE_VERSION}/linux64/chrome-linux64.zip
+RUN wget --no-verbose -O /usr/local/bin/chromedriver https://chromedriver.storage.googleapis.com/${CHROME_DRIVE_VERSION}/chromedriver_linux64.zip
 RUN wget --no-verbose -O /tmp/chrome.deb https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_${CHROME_VERSION}_amd64.deb \
   && apt install -y /tmp/chrome.deb \
   && rm /tmp/chrome.deb
