@@ -1,3 +1,6 @@
+[tool.taskipy.variables]
+version = "1.0.3"
+
 [tool.taskipy.tasks]
-image = { cmd = "docker build . --file Dockerfile --progress=plain --no-cache --tag gabrielbdornas/docker-web-scraping:1.0.2", help = "Constroi Docker image." }
-container = { cmd = "docker run -it --rm gabrielbdornas/docker-web-scraping:1.0.2 bash", help = "Inicia Docker container." }
+image = { cmd = "docker build . --file Dockerfile --progress=plain --no-cache --tag gabrielbdornas/docker-web-scraping:{version} --tag gabrielbdornas/docker-web-scraping:latest", use_vars = true, help = "Constroi Docker image." }
+container = { cmd = "docker run -it --rm gabrielbdornas/docker-web-scraping:{version} bash", use_vars = true, help = "Inicia Docker container." }
