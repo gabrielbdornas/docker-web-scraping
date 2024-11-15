@@ -1,6 +1,15 @@
+[project]
+name = "docker-web-scraping"
+docker_user = "gabrielbdornas"
+version = "1.0.3"
+description = "Docker image to python web scraping processes."
+authors = ["Gabriel Dornas <gabrielbdornas@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
 [tool.taskipy.variables]
 version = "1.0.3"
 
 [tool.taskipy.tasks]
-image = { cmd = "docker build . --file Dockerfile --progress=plain --no-cache --tag gabrielbdornas/docker-web-scraping:{version} --tag gabrielbdornas/docker-web-scraping:latest", use_vars = true, help = "Constroi Docker image." }
+image = { cmd = "python scripts/build_docker_image.py", help = "Build Docker image." }
 container = { cmd = "docker run -it --rm gabrielbdornas/docker-web-scraping:{version} bash", use_vars = true, help = "Inicia Docker container." }
