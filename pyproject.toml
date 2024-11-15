@@ -12,4 +12,4 @@ version = "1.0.3"
 
 [tool.taskipy.tasks]
 image = { cmd = "python scripts/build_docker_image.py", help = "Build Docker image." }
-container = { cmd = "docker run -it --rm gabrielbdornas/docker-web-scraping:{version} bash", use_vars = true, help = "Inicia Docker container." }
+container = { cmd = "python scripts/run_docker_container.py", help = "Start Docker container." }
