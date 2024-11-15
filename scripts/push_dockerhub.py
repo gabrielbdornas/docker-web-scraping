@@ -1,7 +1,6 @@
 import os
 from dotenv import load_dotenv
 from __init__ import (
-    version,
     docker_user,
     image_name,
 )
