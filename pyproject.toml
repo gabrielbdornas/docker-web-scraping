@@ -1,7 +1,7 @@
 [project]
 name = "docker-web-scraping"
 docker_user = "gabrielbdornas"
-version = "1.0.4"
+version = "1.0.5"
 description = "Docker image to python web scraping processes."
 authors = ["Gabriel Dornas <gabrielbdornas@gmail.com>"]
 license = "MIT"
