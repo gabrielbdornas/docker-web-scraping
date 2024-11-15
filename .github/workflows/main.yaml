@@ -1,8 +1,6 @@
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches: main
   workflow_dispatch:
 
 jobs:
@@ -18,4 +16,4 @@ jobs:
     - name: Build the Docker image
       run: task image
     - name: Push the Docker image
-      run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_TOKEN }} && docker push gabrielbdornas/docker-web-scraping:1.0.2
+      run: task push

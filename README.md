@@ -1,23 +1,29 @@
 Docker for Web Scraping
-===
 
-Constroi Docker image para processos de web Scraping
+Builds a Docker image for web scraping processes
 
-### Atualização de versão.
+### Version Update
 
-Após atualizações é necessário:
-- Atualizar a versão da imagem que será publicada no arquivo `pyproject.toml`, nas tasks `image` e `container`.
-- Atualizar a versão da imagem que será publicada no DockerHub no aquivo `.github/workflows/main.yaml` (final da última linha).
+After updates, it is necessary to:
+- Update the image version in the `pyproject.toml` file.
 
-Task `image` é tanto pelo processo GitHub actions quanto para debug local.
-Task `container` pode ser utilizada para debug local.
+### Commands - taskipy
 
-### Utilização docker
+- `task image`: generates the image for the latest version (as described in `pyproject.toml`).
+- `task container`: runs the container for the latest version (as described in `pyproject.toml`).
+- `task push`: publishes latest image version (as described in `pyproject.toml`) to Docker Hub.
 
-- Comando `docker images` verifica images instaladas na máquina.
-- comando `docker container ls -a` mostra containers.
-- Comando `docker rmi <image-id>` remove uma imagem a partir no seu id.
-- Exemplo de utilização local do comando docker run: `docker run -it --rm -v $PWD:/work_dir gabrielbdornas/docker-web-scraping:1.0.2 bash`:
-    - Tag `--rm` remove o container após seu fechamento.
-    - Tag `it` e comando `bash` entra na máquina para testes.
-    - Tag `-v` compartilha pasta entre as máquinas.
+### Docker Usage - Reference
+
+- The `docker images` command checks the images installed on the machine.
+- The `docker container ls -a` command shows containers.
+- The `docker rmi <image-id>` command removes an image by its ID.
+- Example of using the container (docker run):
+
+```
+# The `--rm` tag removes the container after it closes.
+# The `it` tag and the `bash` command enter the machine for testing.
+# The `-v` tag shares a folder between the machines.
+
+$ docker run -it --rm -v $(pwd):/work_dir gabrielbdornas/docker-web-scraping:1.0.3 bash
+```
