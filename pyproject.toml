@@ -1,7 +1,7 @@
 [project]
 name = "docker-web-scraping"
 docker_user = "gabrielbdornas"
-version = "1.0.3"
+version = "1.0.4"
 description = "Docker image to python web scraping processes."
 authors = ["Gabriel Dornas <gabrielbdornas@gmail.com>"]
 license = "MIT"
@@ -12,4 +12,5 @@ version = "1.0.3"
 
 [tool.taskipy.tasks]
 image = { cmd = "python scripts/build_docker_image.py", help = "Build Docker image." }
+push = { cmd = "python scripts/push_dockerhub.py", help = "Push Docker image to DockerHub." }
 container = { cmd = "python scripts/run_docker_container.py", help = "Start Docker container." }
