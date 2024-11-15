@@ -16,4 +16,7 @@ jobs:
     - name: Build the Docker image
       run: task image
     - name: Push the Docker image
+      env:
+        DOCKER_USER: ${{ secrets.DOCKER_USER }}
+        DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
       run: task push
