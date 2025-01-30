@@ -25,5 +25,5 @@ After updates, it is necessary to:
 # The `it` tag and the `bash` command enter the machine for testing.
 # The `-v` tag shares a folder between the machines.
 
-$ docker run -it --rm -v $(pwd):/work_dir gabrielbdornas/docker-web-scraping:1.0.3 bash
+$ docker run -it --rm -v $PWD:/work_dir gabrielbdornas/docker-web-scraping:1.0.3 bash
 ```
